@@ -2,3 +2,9 @@
 Neural network pruning has remarkable performance for reducing the complexity of deep network models. Recent pruning methods usually focus on removing unimportant or redundant filters from the network. However, these well-designed methods conflict in some situations. For example, some filters are important in importance-based methods but may be regarded as redundant in similarity-based methods. So, the correctness of some existing methods is questionable. In this paper, a novel pruning method, namely weight-adaptive channel pruning (WACP), is proposed to address the problem. Our method makes full use of the feature similarity information instead of simply categorizing the similarity feature as redundant. Specifically, we first reveal that the similarity between different output features is stable, regardless of the number of input images.Then, based on the similarity information, we propose a weight-adaptive compensation strategy to reduce the error caused by pruning. Moreover, we design a novel channel pruning algorithm, based on the closeness centrality of graph theory, to determine which features should be retained from a set of similar features. Extensive and targeted experiments demonstrate the effectiveness of the proposed WACP. The results show that the WACP achieves state-of-the-art performance on several benchmark networks and datasets, even for a very high compression rate. For example, with ResNet-56 on CIFAR-10, WACP improves accuracy by 0.46\% while reducing FLOPs by 52.2\% and parameters by 43.5\%. For ResNet-50 on ImageNet, WACP prunes more than 55\% of FLOPs with only a 0.72\%/0.38\%    drop in top-1/top-5 accuracy. Our codes are available at: https://github.com/dongzhao12/WACP.
 ![image text](https://github.com/dongzhao12/WACP/blob/main/imgs/WACP.png)
 ## Environments
+The code has been tested in the following environments:
+
+Python 3.8
+PyTorch 1.8.1
+cuda 10.2
+torchsummary, torchvision, thop, scipy, sympy
